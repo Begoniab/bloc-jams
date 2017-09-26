@@ -38,3 +38,7 @@ body.collection {
  .collection-album-container img {
      width: 80%;
  }
+ .links-container .navbar-link:active {
+   background-color: white;
+   color: rgb(233,50,117);
+ }
