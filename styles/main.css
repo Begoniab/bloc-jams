@@ -88,6 +88,9 @@ min-height: 100%;
      margin: 0 auto;
      max-width: 64rem;
  }
+ .container.narrow {
+     max-width: 56rem;
+ }
 
  .clearfix::after {
    content: ".";
