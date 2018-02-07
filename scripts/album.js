@@ -35,7 +35,7 @@
      artist: 'Lhasa Bacardi',
      label: 'Tibet',
      year: '2010',
-     albumArtUrl: 'assets/images/album_covers/20.png',
+     albumArtUrl: 'assets/images/album_covers/21.png',
      songs: [
          { title: 'So far, so good', duration: '1:01' },
          { title: 'Soledad', duration: '5:01' },
@@ -91,24 +91,26 @@
 
      var albums = [albumPicasso, albumMarconi, albumLhasa];
      var index = 1;
-     albumImage.addEventListener ("click", function(event) (
-     setCurrentAlbum(albums[index]);
-     index++;
-     if (index == albums.length) {
-       index = 0;
-     }
-   });
-   for (var i = 0; i < songRows.length; i++) {
-           songRows[i].addEventListener('mouseleave', function(event) {
-             // Selects first child element, which is the song-item-number element
-           this.children[0].innerHTML = this.children[0].getAttribute('data-song-number');
-           });
+     albumImage.addEventListener("click", function(event){
+       setCurrentAlbum(albums[index]);
+       index++;
+       if (index == albums.length) {
+         index = 0;
        }
+     });
 
-  songListContainer.addEventListener('mouseover', function(event) {
-       // #1
-  // Only target individual song rows during event delegation
-      if (event.target.parentElement.className === 'album-view-song-item') {
-          event.target.parentElement.querySelector('.song-item-number').innerHTML = playButtonTemplate;
-      }
-   });
+     for (var i = 0; i < songRows.length; i++) {
+         songRows[i].addEventListener('mouseleave', function(event) {
+           // Selects first child element, which is the song-item-number element
+         this.children[0].innerHTML = this.children[0].getAttribute('data-song-number');
+         });
+     }
+
+     songListContainer.addEventListener('mouseover', function(event) {
+         // #1
+         // Only target individual song rows during event delegation
+        if (event.target.parentElement.className === 'album-view-song-item') {
+            event.target.parentElement.querySelector('.song-item-number').innerHTML = playButtonTemplate;
+        }
+     });
+  }
