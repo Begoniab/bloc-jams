@@ -168,11 +168,11 @@ var getSongItem = function(element) {
          // Only target individual song rows during event delegation
         if (event.target.parentElement.className === 'album-view-song-item') {
             event.target.parentElement.querySelector('.song-item-number').innerHTML = playButtonTemplate;
-+            var songItem = getSongItem(event.target);
-+
-+            if (songItem.getAttribute('data-song-number') !== currentlyPlayingSong) {
-+                songItem.innerHTML = playButtonTemplate;
-+            }
+            var songItem = getSongItem(event.target);
+
+            if (songItem.getAttribute('data-song-number') !== currentlyPlayingSong) {
+                songItem.innerHTML = playButtonTemplate;
+           }
         }
      });
   }
