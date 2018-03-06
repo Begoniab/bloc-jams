@@ -20,12 +20,13 @@ var getSongNumberCell = function(number) {
      var clickHandler = function() {
      var songNumber = parseInt($(this).attr('data-song-number'));
 
-       if (setSong !== null) {
+         if (currentlyPlayingSongNumber !== null) {
 
-       var currentlyPlayingCell = getSongNumberCell (setSong);
-       currentlyPlayingCell.html(setSong);
-     }
-      if (setSong!== songNumber) {
+      var currentlyPlayingCell = getSongNumberCell(currentlyPlayingSongNumber);
+           currentlyPlayingCell.html(currentlyPlayingSongNumber);
+        }
+      if (currentlyPlayingSongNumber !== songNumber) {
+
   // Switch from Play -> Pause button to indicate new song is playing.
   $(this).html(pauseButtonTemplate);
   setSong(songNumber);
@@ -44,7 +45,7 @@ var getSongNumberCell = function(number) {
        var songNumberCell = $(this).find('.song-item-number');
        var songNumber = parseInt($(this).attr('data-song-number'));
 
-       if (songNumber !== setSong) {
+       if (songNumber !== currentlyPlayingSongNumber) {
            songNumberCell.html(playButtonTemplate);
        }
     };
@@ -52,7 +53,7 @@ var getSongNumberCell = function(number) {
       var songNumberCell = $(this).find('.song-item-number');
       var songNumber = parseInt($(this).attr('data-song-number'));
 
-      if (songNumber !== setSong) {
+      if (songNumber !== currentlyPlayingSongNumber) {
           songNumberCell.html(songNumber);
       }
     };
@@ -140,7 +141,7 @@ var nextSong = function() {
     var lastSongNumber = setSong;
 
     // Set a new current song
-    setSong = currentSongIndex + 1;
+    setSong(currentSongIndex + 1);
     currentSongFromAlbum = currentAlbum.songs[currentSongIndex];
 
     // Update the Player Bar information
